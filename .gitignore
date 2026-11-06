@@ -1,0 +1,8 @@
+/target/
+/.tools/
+*.conf
+!tests/fixtures/*.conf
+*.log
+*.dmp
+*.wgprofile
+/.local/
