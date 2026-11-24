@@ -39,13 +39,19 @@ que puedan colisionar con las instalaciones oficiales.
 ## Validación efectuada
 
 - Rust 1.99.1, target Windows x64 MSVC.
-- `cargo test --locked --workspace`: 33 pruebas correctas (incluyendo GUI),
-  1 exportación de vistas ignorada por ser opt-in.
+- `cargo test --locked --workspace`: 43 pruebas correctas, 1 exportación de
+  vistas ignorada por ser opt-in.
 - `cargo clippy --locked --workspace --all-targets -- -D warnings`: correcto.
 - `cargo fmt --all -- --check`: correcto.
 - `cargo build --locked --release -p wg-desktop`: correcto.
 - `scripts/check-input-imports.ps1`: correcto sobre la mitigación de winit;
   sin imports de consulta global del teclado, registro raw ni hooks globales.
+
+Revalidación local de la línea base: 24 de noviembre de 2026, Windows x64 MSVC.
+El ejecutable release comprobado tuvo SHA-256
+`517AE5DCF95322081039BCBC24451367DBE7878E6198F3B546E6DAF6AE9F0FEE`.
+La aplicación nativa no se abrió; la comprobación de imports no sustituye la
+validación pendiente de Seqrite ni las pruebas de tráfico con un peer real.
 
 El `rust-version` declarado es 1.88, requerido por egui/eframe y sus dependencias.
 La compilación con esa versión mínima todavía no se
